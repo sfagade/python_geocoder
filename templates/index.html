@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geo Coder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main_styles.css')}}" />
+</head>
+<body>
+    <div class="container">
+        <h1>Collecting Heights</h1>
+        <h3>Please upload your CSV file. The values containing addresses should be in column named address or Address</h3>
+        <div class="message">{{text | safe }}</div>
+        <form action="{{url_for('success')}}" method="POST" enctype="multipart/form-data">
+            <input title="Choose a file you want to upload" placeholder="Select File" type="file"
+                name="csv_file" formenctype="multipart/form-data" />
+            <br />
+            <button type="submit">Upload</button>
+        </form>
+        {% if data is defined %}
+            {% include data %}
+        {% endif %}
+    </div>
+</body>
+</html>
