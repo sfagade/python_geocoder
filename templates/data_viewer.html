@@ -7,10 +7,9 @@
 <body>
     <div>This is data loader file</div>
     <div>
-        {% for table in current_user %}
-            {{titles[loop.index]}}
-            {{ table|safe }}
-        {% endfor %}
+
+            {{ text|safe }}
+
     </div>
 <a href="{{url_for('download')}}" target="_blank">
         <button class="btn">Download</button>
